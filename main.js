@@ -1,4 +1,6 @@
 document.querySelector(".control-buttons span").onclick = function () {
+    document.getElementById('start').play();
+
     let yourName = prompt("whats your name?")
     if (yourName == null || yourName == "") {
         document.querySelector(".name span").innerHTML="unKnown";
