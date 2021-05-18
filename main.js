@@ -17,7 +17,7 @@ document.querySelector(".control-buttons span").onclick = function () {
 
     blocks.forEach((block , index)=> {
     block.style.order = orderRange[index];  
-    block.addEventListener("click" , function(){
+    block.addEventListener("click" , function() {
         flip(block);
     })  
     }
@@ -28,17 +28,26 @@ document.querySelector(".control-buttons span").onclick = function () {
     temp, 
     random;
     
-    while(current > 0) {
-        random = Math.floor(Math.random() * current )
+    while (current > 0) {
+        random = Math.floor(Math.random() * current);
 
-        current-- ;
-
-        temp = array[current] 
-        array[current] = array[random]
+        // Decrease Length By One
+        current--;
+    
+        // [1] Save Current Element in Stash
+        temp = array[current];
+    
+        // [2] Current Element = Random Element
+        array[current] = array[random];
+    
+        // [3] Random Element = Get Element From Stash
         array[random] = temp;
-        return array;
+    
+      }
+    
+      return array;
     }
-    }
+    
     function flip(selectedBlock) {
         selectedBlock.classList.add('is-flipped')
         let allFlippedBlocks = blocks.filter(flippedBlock => flippedBlock.classList.contains('is-flipped'));
